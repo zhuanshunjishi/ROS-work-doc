@@ -773,8 +773,13 @@ if __name__=="__main__":
 ## 八、简易安装OR测试
 ***<font color=red>所有代码都可以从我的Github中下载：https://github.com/zhuanshunjishi/ROS-work</font>***
 ***<font color=red>或在在Gitee中下载：https://gitee.com/MingQi_Ya/ROS-work</font>***
-### 2.方法一(sh安装)
-
+### 2.方法一(SHELL脚本)
+```Shell
+  #返回主目录
+  cd ~
+  #下载shell文件&&执行shell文件
+  git clone https://gitee.com/MingQi_Ya/ROS-work-sh.git && ./ROS-work-sh/roshomework.sh 
+```
 
 ### 2.方法二
 #### 1.安装Turtlebot3
@@ -798,6 +803,7 @@ if __name__=="__main__":
   sudo apt-get install ros-melodic-gmapping
   sudo apt-get install ros-melodic-dwa-local-planner
 ```
+![Shell脚本](<2023-11-22 21-17-58 的屏幕截图.png>)
 
 #### 4.创建ROS工作空间
 ```Shell
