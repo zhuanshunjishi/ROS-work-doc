@@ -21,6 +21,9 @@ echo "————————————————————————�
     cd ~/turtlebot3_ws
     catkin_make
 
+    echo "source ~/turtlebot3_ws/devel/setup.bash " >> ~/.bashrc
+    echo " export TURTLEBOT3_MODEL=waffle " >> ~/.bashrc
+
     cd ~
     source ./.bashrc 
 echo "—————————————————————————————————————————————"
