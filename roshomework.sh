@@ -82,15 +82,15 @@ echo "————————————————————————�
 echo "创建工作空间"
 echo "—————————————————————————————————————————————"
    #创建文件夹
-   mkdir -p ~/roshomework-1/src
-   cd ~/roshomework-1/src
+   mkdir -p ~/roshomework/src
+   cd ~/roshomework/src
    # ROS的工作空间初始化命令
    catkin_init_workspace
    cd ..
    # 编译整个工作空间
    catkin_make
    #配置文件中加入环境变量
-   echo "source ~/roshomework-1/devel/setup.bash" >> ~/.bashrc
+   echo "source ~/roshomework/devel/setup.bash" >> ~/.bashrc
     cd ~
     source ./.bashrc 
 echo "—————————————————————————————————————————————"
@@ -101,12 +101,12 @@ echo "————————————————————————�
 echo "—————————————————————————————————————————————"
 echo "下载源文件"
 echo "—————————————————————————————————————————————"
-   cd ~/roshomework-1/src
+   cd ~/roshomework/src
    #git下载文件
     git clone https://gitee.com/MingQi_Ya/ROS-work.git
     #移动文件
-    mv ~/roshomework-1/src/ROS-work/* ~/roshomework-1/src
-    sudo rm -r ~/roshomework-1/src/ROS-work
+    mv ~/roshomework/src/ROS-work/* ~/roshomework/src
+    sudo rm -r ~/roshomework/src/ROS-work
     #更新环境变量
     cd ~
     source ./.bashrc 
