@@ -1,3 +1,9 @@
+---
+output:
+      word_document:
+          path:~/docs-ROS/ROS.docx
+---
+
 # 基于TurtleBot3的仿真slam建模与导航(Gazebo建模)
 ## 前言
 - 快速配置环境可以直接看第八章，已经打包好。
