@@ -370,7 +370,7 @@ roslaunch ros-w turtlebot3_world.launch
 - 在 ~/roshomework/src/src中创建控制小车的Python的程序（参考turtlebot3_teleop_key程序）
 
 ```Shell
-   touch ~/roshomework/src/src/rosw_teleop_key.py
+ touch ~/roshomework/src/src/rosw_teleop_key.py
 ```
 - 下列代码复制进入.py文件中
 
@@ -725,8 +725,6 @@ if __name__=="__main__":
 节点图如下：
 ![rqt-turtlebot3_slam.launch](3.png)
 
-
-
 - **5.仿真环境+slam导航（turtlebot3_guidance.launch）**
 加入键盘控制节点
 ```Shell
@@ -784,7 +782,11 @@ if __name__=="__main__":
    # 将克隆的gazebo_models文件夹重命名为models，并放到.gazebo文件夹下
    mv gazebo_models/ ./models
   ```
-#### 3.安装gazebo模型库
+#### 3.安装gmapping包
+-  在后期程序中需要gmapping包，现在安装防止后期报错。
+```Shell
+  sudo apt-get install ros-kinetic-gmapping
+```
 
 
 #### 4.创建ROS工作空间
