@@ -1,7 +1,14 @@
 # 基于TurtleBot3的仿真slam建模与导航(Gazebo建模)
 ## 前言
-## 一、TurtleBot3简介
+- 快速配置环境可以直接看第八章，已经打包好。
+前面为分步骤过程，在第四章安装了Cartographer，但因为时间问题，后续没有用，可以跳过。
+## 一、TurtleBot3简介与SLAM简介
+1、什么是TurtleBot3？
 TurtleBot3 是一个小型，低成本，完全可编程，基于 ROS 的移动机器人。它旨在用于教育，研究，产品原型和爱好应用的目的。TurtleBot3 的目标是大幅降低平台的尺寸和价格，而不会牺牲性能，功能和质量。由于提供了其他选项，如底盘，计算机和传感器，TurtleBot3 可以通过各种方式进行定制。TurtleBot3 应用 了SBC（单板计算机），深度传感器和 3D 打印的最新技术进步等技术。
+1、什么是SLAM？
+在研究机器人自动行驶的时候，人们注意到，为了实现自动驾驶功能，机器人必须实现对自身的定位和对周围环境的感知。在逐步探索中，研究者开始借用激光雷达、相机等先进的传感设备完成定位与环境感知功能。
+同步定位与建图（Simultaneous Localization and Mapping，SLAM）是在上世纪80年代被提出的，起初发展的算法皆采用激光雷达作为定位与建图的工具，随着稀疏性问题的解决，相机也被引入SLAM领域，如今SLAM技术在向多传感器融合的方向发展，激光雷达、深度相机、IMU惯导等正成为SLAM技术的常见解决方案。
+
 ## 二、安装ROS
 - 本文使用Ubuntu18.04安装ROS Melodic
 ### 1  . 更改ROS 源(国内源)
@@ -760,9 +767,64 @@ if __name__=="__main__":
 ![rqtturtlebot3_guidance.launch-](4.png)
 
 ## 八、简易安装OR测试
-#### 1.所有代码都可以从我的Github中下载
+***<font color=red>所有代码都可以从我的Github中下载：https://github.com/zhuanshunjishi/ROS-work</font>***
+***<font color=red>或在在Gitee中下载：https://gitee.com/MingQi_Ya/ROS-work</font>***
+#### 1.安装Turtlebot3
+- 因为在后来用Turtlebot3作为载体。
+**按照第三章安装Turtlebot3**
+#### 2.安装gazebo模型库
+- 因为在后来的仿真模型（Myhouse.world）中用到了gazebo模型库的模型。
+ ```Shell
+    # 进入.gazebo文件夹，用于存放Gazebo模型和相关配置文件
+   cd ~/.gazebo/
+   # 安装Git工具
+   sudo apt install git
+   # 从https://gitee.com/dva7777/gazebo_models.git克隆Gazebo模型
+   git clone https://gitee.com/dva7777/gazebo_models.git
+   # 将克隆的gazebo_models文件夹重命名为models，并放到.gazebo文件夹下
+   mv gazebo_models/ ./models
+  ```
+#### 3.安装gazebo模型库
 
+
+#### 4.创建ROS工作空间
+```Shell
+   #创建文件夹
+   mkdir -p ~/roshomework/src
+   cd roshomework/src
+   # ROS的工作空间初始化命令
+   catkin_init_workspace
+   cd ..
+   # 编译整个工作空间
+   catkin_make
+   #配置文件中加入环境变量
+   echo "source ~/roshomework/devel/setup.bash" >> ~/.bashrc
+```
+#### 5.下载github文件
+```Shell
+   #创建文件夹
+   cd ~/roshomework/src
+   #git下载文件
+    git clone https://github.com/zhuanshunjishi/ROS-work.git
+    #如果上面现在不了，可以用gitee上面的
+    git clone https://gitee.com/MingQi_Ya/ROS-work.git
+    #移动文件
+    mv ~/roshomework/src/ROS-work/* ~/roshomework/src
+    sudo rm -r ~/roshomework/src/ROS-work
+    #更新环境变量
+    source ./.bashrc
+```
+#### 6、slam自主导航
+**已经保存好map文件，不需要从新slam建立map文件**
+``` Shell
+#运行slam导航launch
+  roslaunch ros-w turtlebot3_guidance.launch
+```
+- 配置好rviz,使用2D Pose Estimate设定好小车起始地点，再使用2D Nav Goal设定小车目标地点，小车会规划好路径，自动运行到目标位置，实现自主导航功能。
+![slam自主导航](<2023-11-21 18-00-54 的屏幕截图.png>)
 
 
 ## 参考连接
 - [Ubuntu18.04安装ROS Melodic（详细，亲测安装完成，有清晰的截图步骤）](https://blog.csdn.net/qq_44830040/article/details/106049992?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522170044439716800184141460%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=170044439716800184141460&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-106049992-null-null.142^v96^pc_search_result_base3&utm_term=ubuntu18.04%E5%AE%89%E8%A3%85ros%20melodic&spm=1018.2226.3001.4187)
+- [Cartographer ROS](https://google-cartographer-ros.readthedocs.io/en/latest/compilation.html)
+-  [gazebo仿真环境搭建+配置+小车运动仿真](https://blog.csdn.net/m0_51985300/article/details/125997149)
