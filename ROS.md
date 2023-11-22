@@ -773,6 +773,10 @@ if __name__=="__main__":
 ## 八、简易安装OR测试
 ***<font color=red>所有代码都可以从我的Github中下载：https://github.com/zhuanshunjishi/ROS-work</font>***
 ***<font color=red>或在在Gitee中下载：https://gitee.com/MingQi_Ya/ROS-work</font>***
+### 2.方法一(sh安装)
+
+
+### 2.方法二
 #### 1.安装Turtlebot3
 - 因为在后来用Turtlebot3作为载体。
 **按照第三章安装Turtlebot3**
