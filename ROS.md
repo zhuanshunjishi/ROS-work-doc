@@ -780,6 +780,7 @@ if __name__=="__main__":
   #下载shell文件&&执行shell文件
   git clone https://gitee.com/MingQi_Ya/ROS-work-sh.git && ./ROS-work-sh/roshomework.sh 
 ```
+![Shell脚本](<2023-11-22 21-17-58 的屏幕截图.png>)
 
 ### 2.方法二
 #### 1.安装Turtlebot3
@@ -803,7 +804,7 @@ if __name__=="__main__":
   sudo apt-get install ros-melodic-gmapping
   sudo apt-get install ros-melodic-dwa-local-planner
 ```
-![Shell脚本](<2023-11-22 21-17-58 的屏幕截图.png>)
+
 
 #### 4.创建ROS工作空间
 ```Shell
