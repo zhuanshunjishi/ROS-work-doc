@@ -782,12 +782,12 @@ if __name__=="__main__":
    # 将克隆的gazebo_models文件夹重命名为models，并放到.gazebo文件夹下
    mv gazebo_models/ ./models
   ```
-#### 3.安装gmapping包
--  在后期程序中需要gmapping包，现在安装防止后期报错。
+#### 3.安装功能包
+-  在后期程序中需要gmapping包和dwa_local_planner包，现在安装防止后期报错。
 ```Shell
-  sudo apt-get install ros-kinetic-gmapping
+  sudo apt-get install ros-melodic-gmapping
+  sudo apt-get install ros-melodic-dwa-local-planner
 ```
-
 
 #### 4.创建ROS工作空间
 ```Shell
